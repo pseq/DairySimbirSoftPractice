@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		396C12CAC2A37F3A36A2CE01 /* Pods_DairySimbirSoftPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B06B10D217F2614DDEEC6DF2 /* Pods_DairySimbirSoftPractice.framework */; };
+		46C274A3B154AA6CB89FAFCA /* Pods_DairySimbirSoftPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148C5BDDC2ECE71861E9A6AD /* Pods_DairySimbirSoftPracticeTests.framework */; };
+		552869AD2D01C6F0005C02A0 /* TaskInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552869AC2D01C6F0005C02A0 /* TaskInfoViewController.swift */; };
+		552869AF2D01C713005C02A0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552869AE2D01C713005C02A0 /* AddTaskViewController.swift */; };
 		5575E1DD2CFC808400B1D4AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1DC2CFC808400B1D4AF /* AppDelegate.swift */; };
 		5575E1DF2CFC808400B1D4AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1DE2CFC808400B1D4AF /* SceneDelegate.swift */; };
-		5575E1E12CFC808400B1D4AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1E02CFC808400B1D4AF /* ViewController.swift */; };
+		5575E1E12CFC808400B1D4AF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1E02CFC808400B1D4AF /* CalendarViewController.swift */; };
 		5575E1E42CFC808400B1D4AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5575E1E22CFC808400B1D4AF /* Main.storyboard */; };
 		5575E1E62CFC808600B1D4AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5575E1E52CFC808600B1D4AF /* Assets.xcassets */; };
 		5575E1E92CFC808600B1D4AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5575E1E72CFC808600B1D4AF /* LaunchScreen.storyboard */; };
 		5575E1F42CFC808600B1D4AF /* DairySimbirSoftPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1F32CFC808600B1D4AF /* DairySimbirSoftPracticeTests.swift */; };
 		5575E1FE2CFC808600B1D4AF /* DairySimbirSoftPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1FD2CFC808600B1D4AF /* DairySimbirSoftPracticeUITests.swift */; };
 		5575E2002CFC808600B1D4AF /* DairySimbirSoftPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1FF2CFC808600B1D4AF /* DairySimbirSoftPracticeUITestsLaunchTests.swift */; };
+		F565D4F929456BE4441D5D93 /* Pods_DairySimbirSoftPractice_DairySimbirSoftPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430D3FCDEA9EE5058B3FECDB /* Pods_DairySimbirSoftPractice_DairySimbirSoftPracticeUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +41,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		148C5BDDC2ECE71861E9A6AD /* Pods_DairySimbirSoftPracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DairySimbirSoftPracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A62E061137F6F57116C0171 /* Pods-DairySimbirSoftPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPractice.release.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice.release.xcconfig"; sourceTree = "<group>"; };
+		3FE4A317EAD7863CB79A7A89 /* Pods-DairySimbirSoftPracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPracticeTests.release.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPracticeTests/Pods-DairySimbirSoftPracticeTests.release.xcconfig"; sourceTree = "<group>"; };
+		430D3FCDEA9EE5058B3FECDB /* Pods_DairySimbirSoftPractice_DairySimbirSoftPracticeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DairySimbirSoftPractice_DairySimbirSoftPracticeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		44C1905A2D8D0E64E5F7AE8F /* Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		552869AC2D01C6F0005C02A0 /* TaskInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInfoViewController.swift; sourceTree = "<group>"; };
+		552869AE2D01C713005C02A0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		5575E1D92CFC808400B1D4AF /* DairySimbirSoftPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DairySimbirSoftPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5575E1DC2CFC808400B1D4AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5575E1DE2CFC808400B1D4AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5575E1E02CFC808400B1D4AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5575E1E02CFC808400B1D4AF /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		5575E1E32CFC808400B1D4AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5575E1E52CFC808600B1D4AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5575E1E82CFC808600B1D4AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +61,10 @@
 		5575E1F92CFC808600B1D4AF /* DairySimbirSoftPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DairySimbirSoftPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5575E1FD2CFC808600B1D4AF /* DairySimbirSoftPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairySimbirSoftPracticeUITests.swift; sourceTree = "<group>"; };
 		5575E1FF2CFC808600B1D4AF /* DairySimbirSoftPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairySimbirSoftPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6E2B68FC03A974BE273E4858 /* Pods-DairySimbirSoftPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPracticeTests.debug.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPracticeTests/Pods-DairySimbirSoftPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		816E8352B2F70E570364ACCD /* Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.release.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AEBF6D00D17B02936ECE920B /* Pods-DairySimbirSoftPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPractice.debug.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice.debug.xcconfig"; sourceTree = "<group>"; };
+		B06B10D217F2614DDEEC6DF2 /* Pods_DairySimbirSoftPractice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DairySimbirSoftPractice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				396C12CAC2A37F3A36A2CE01 /* Pods_DairySimbirSoftPractice.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46C274A3B154AA6CB89FAFCA /* Pods_DairySimbirSoftPracticeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +88,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F565D4F929456BE4441D5D93 /* Pods_DairySimbirSoftPractice_DairySimbirSoftPracticeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19F2E3C7FD18A96BC1C36CDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B06B10D217F2614DDEEC6DF2 /* Pods_DairySimbirSoftPractice.framework */,
+				430D3FCDEA9EE5058B3FECDB /* Pods_DairySimbirSoftPractice_DairySimbirSoftPracticeUITests.framework */,
+				148C5BDDC2ECE71861E9A6AD /* Pods_DairySimbirSoftPracticeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5519103C2D00EC580084AAE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5519103D2D00EC6D0084AAE7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5519103E2D00EC850084AAE7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5575E1E02CFC808400B1D4AF /* CalendarViewController.swift */,
+				552869AC2D01C6F0005C02A0 /* TaskInfoViewController.swift */,
+				552869AE2D01C713005C02A0 /* AddTaskViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5519103F2D00EC930084AAE7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		5575E1D02CFC808400B1D4AF = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +143,8 @@
 				5575E1F22CFC808600B1D4AF /* DairySimbirSoftPracticeTests */,
 				5575E1FC2CFC808600B1D4AF /* DairySimbirSoftPracticeUITests */,
 				5575E1DA2CFC808400B1D4AF /* Products */,
+				96BF8CCE2575C113864D9BE3 /* Pods */,
+				19F2E3C7FD18A96BC1C36CDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +161,12 @@
 		5575E1DB2CFC808400B1D4AF /* DairySimbirSoftPractice */ = {
 			isa = PBXGroup;
 			children = (
+				5519103C2D00EC580084AAE7 /* Model */,
+				5519103D2D00EC6D0084AAE7 /* View */,
+				5519103E2D00EC850084AAE7 /* Controller */,
+				5519103F2D00EC930084AAE7 /* Service */,
 				5575E1DC2CFC808400B1D4AF /* AppDelegate.swift */,
 				5575E1DE2CFC808400B1D4AF /* SceneDelegate.swift */,
-				5575E1E02CFC808400B1D4AF /* ViewController.swift */,
 				5575E1E22CFC808400B1D4AF /* Main.storyboard */,
 				5575E1E52CFC808600B1D4AF /* Assets.xcassets */,
 				5575E1E72CFC808600B1D4AF /* LaunchScreen.storyboard */,
@@ -127,6 +192,19 @@
 			path = DairySimbirSoftPracticeUITests;
 			sourceTree = "<group>";
 		};
+		96BF8CCE2575C113864D9BE3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AEBF6D00D17B02936ECE920B /* Pods-DairySimbirSoftPractice.debug.xcconfig */,
+				3A62E061137F6F57116C0171 /* Pods-DairySimbirSoftPractice.release.xcconfig */,
+				44C1905A2D8D0E64E5F7AE8F /* Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.debug.xcconfig */,
+				816E8352B2F70E570364ACCD /* Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.release.xcconfig */,
+				6E2B68FC03A974BE273E4858 /* Pods-DairySimbirSoftPracticeTests.debug.xcconfig */,
+				3FE4A317EAD7863CB79A7A89 /* Pods-DairySimbirSoftPracticeTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,9 +212,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5575E2032CFC808600B1D4AF /* Build configuration list for PBXNativeTarget "DairySimbirSoftPractice" */;
 			buildPhases = (
+				D57E2E2DDD54D78A6D7BF795 /* [CP] Check Pods Manifest.lock */,
 				5575E1D52CFC808400B1D4AF /* Sources */,
 				5575E1D62CFC808400B1D4AF /* Frameworks */,
 				5575E1D72CFC808400B1D4AF /* Resources */,
+				20DF361007F7961578163D5F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,6 +231,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5575E2062CFC808600B1D4AF /* Build configuration list for PBXNativeTarget "DairySimbirSoftPracticeTests" */;
 			buildPhases = (
+				335289454F20DD69BB7C98D3 /* [CP] Check Pods Manifest.lock */,
 				5575E1EB2CFC808600B1D4AF /* Sources */,
 				5575E1EC2CFC808600B1D4AF /* Frameworks */,
 				5575E1ED2CFC808600B1D4AF /* Resources */,
@@ -169,9 +250,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5575E2092CFC808600B1D4AF /* Build configuration list for PBXNativeTarget "DairySimbirSoftPracticeUITests" */;
 			buildPhases = (
+				FB41D6F4E09C70EA3F806CA2 /* [CP] Check Pods Manifest.lock */,
 				5575E1F52CFC808600B1D4AF /* Sources */,
 				5575E1F62CFC808600B1D4AF /* Frameworks */,
 				5575E1F72CFC808600B1D4AF /* Resources */,
+				8A591D5FD8B9D65591408C8D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -253,14 +336,119 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20DF361007F7961578163D5F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		335289454F20DD69BB7C98D3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DairySimbirSoftPracticeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A591D5FD8B9D65591408C8D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D57E2E2DDD54D78A6D7BF795 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DairySimbirSoftPractice-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FB41D6F4E09C70EA3F806CA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5575E1D52CFC808400B1D4AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5575E1E12CFC808400B1D4AF /* ViewController.swift in Sources */,
+				5575E1E12CFC808400B1D4AF /* CalendarViewController.swift in Sources */,
+				552869AD2D01C6F0005C02A0 /* TaskInfoViewController.swift in Sources */,
 				5575E1DD2CFC808400B1D4AF /* AppDelegate.swift in Sources */,
 				5575E1DF2CFC808400B1D4AF /* SceneDelegate.swift in Sources */,
+				552869AF2D01C713005C02A0 /* AddTaskViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +620,7 @@
 		};
 		5575E2042CFC808600B1D4AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEBF6D00D17B02936ECE920B /* Pods-DairySimbirSoftPractice.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -443,8 +632,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,14 +642,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pseq.com.DairySimbirSoftPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		5575E2052CFC808600B1D4AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A62E061137F6F57116C0171 /* Pods-DairySimbirSoftPractice.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,8 +665,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,14 +675,18 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pseq.com.DairySimbirSoftPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		5575E2072CFC808600B1D4AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E2B68FC03A974BE273E4858 /* Pods-DairySimbirSoftPracticeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +707,7 @@
 		};
 		5575E2082CFC808600B1D4AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FE4A317EAD7863CB79A7A89 /* Pods-DairySimbirSoftPracticeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -528,6 +728,7 @@
 		};
 		5575E20A2CFC808600B1D4AF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44C1905A2D8D0E64E5F7AE8F /* Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -546,6 +747,7 @@
 		};
 		5575E20B2CFC808600B1D4AF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 816E8352B2F70E570364ACCD /* Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
