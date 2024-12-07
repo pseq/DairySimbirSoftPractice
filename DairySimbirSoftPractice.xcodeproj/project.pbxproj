@@ -11,6 +11,7 @@
 		46C274A3B154AA6CB89FAFCA /* Pods_DairySimbirSoftPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148C5BDDC2ECE71861E9A6AD /* Pods_DairySimbirSoftPracticeTests.framework */; };
 		552869AD2D01C6F0005C02A0 /* TaskInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552869AC2D01C6F0005C02A0 /* TaskInfoViewController.swift */; };
 		552869AF2D01C713005C02A0 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552869AE2D01C713005C02A0 /* AddTaskViewController.swift */; };
+		556E0F162D04334E0067A97B /* tasksFile.json in Resources */ = {isa = PBXBuildFile; fileRef = 556E0F152D04334E0067A97B /* tasksFile.json */; };
 		5575E1DD2CFC808400B1D4AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1DC2CFC808400B1D4AF /* AppDelegate.swift */; };
 		5575E1DF2CFC808400B1D4AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1DE2CFC808400B1D4AF /* SceneDelegate.swift */; };
 		5575E1E12CFC808400B1D4AF /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1E02CFC808400B1D4AF /* CalendarViewController.swift */; };
@@ -48,6 +49,7 @@
 		44C1905A2D8D0E64E5F7AE8F /* Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.debug.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		552869AC2D01C6F0005C02A0 /* TaskInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInfoViewController.swift; sourceTree = "<group>"; };
 		552869AE2D01C713005C02A0 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		556E0F152D04334E0067A97B /* tasksFile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tasksFile.json; sourceTree = "<group>"; };
 		5575E1D92CFC808400B1D4AF /* DairySimbirSoftPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DairySimbirSoftPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5575E1DC2CFC808400B1D4AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5575E1DE2CFC808400B1D4AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,14 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		556E0F142D04329F0067A97B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				556E0F152D04334E0067A97B /* tasksFile.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5575E1D02CFC808400B1D4AF = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +171,7 @@
 		5575E1DB2CFC808400B1D4AF /* DairySimbirSoftPractice */ = {
 			isa = PBXGroup;
 			children = (
+				556E0F142D04329F0067A97B /* Resources */,
 				5519103C2D00EC580084AAE7 /* Model */,
 				5519103D2D00EC6D0084AAE7 /* View */,
 				5519103E2D00EC850084AAE7 /* Controller */,
@@ -314,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				556E0F162D04334E0067A97B /* tasksFile.json in Resources */,
 				5575E1E92CFC808600B1D4AF /* LaunchScreen.storyboard in Resources */,
 				5575E1E62CFC808600B1D4AF /* Assets.xcassets in Resources */,
 				5575E1E42CFC808400B1D4AF /* Main.storyboard in Resources */,

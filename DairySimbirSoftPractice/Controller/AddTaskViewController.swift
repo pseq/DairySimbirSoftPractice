@@ -17,7 +17,13 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskDatePicker.setDate(taskDate!, animated: true)
+        taskDatePicker.setDate(taskDate!, animated: false)
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("Now call write to Realm service")
+    }
+    
+    
     
 }
