@@ -21,7 +21,8 @@
 		5575E1F42CFC808600B1D4AF /* DairySimbirSoftPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1F32CFC808600B1D4AF /* DairySimbirSoftPracticeTests.swift */; };
 		5575E1FE2CFC808600B1D4AF /* DairySimbirSoftPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1FD2CFC808600B1D4AF /* DairySimbirSoftPracticeUITests.swift */; };
 		5575E2002CFC808600B1D4AF /* DairySimbirSoftPracticeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5575E1FF2CFC808600B1D4AF /* DairySimbirSoftPracticeUITestsLaunchTests.swift */; };
-		55AB10B72D0447EB00CF62F9 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB10B62D0447EB00CF62F9 /* TaskModel.swift */; };
+		55AB10B72D0447EB00CF62F9 /* TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB10B62D0447EB00CF62F9 /* TaskItem.swift */; };
+		55AB10BB2D048C8700CF62F9 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AB10BA2D048C8700CF62F9 /* DataService.swift */; };
 		F565D4F929456BE4441D5D93 /* Pods_DairySimbirSoftPractice_DairySimbirSoftPracticeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 430D3FCDEA9EE5058B3FECDB /* Pods_DairySimbirSoftPractice_DairySimbirSoftPracticeUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +65,8 @@
 		5575E1F92CFC808600B1D4AF /* DairySimbirSoftPracticeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DairySimbirSoftPracticeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5575E1FD2CFC808600B1D4AF /* DairySimbirSoftPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairySimbirSoftPracticeUITests.swift; sourceTree = "<group>"; };
 		5575E1FF2CFC808600B1D4AF /* DairySimbirSoftPracticeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairySimbirSoftPracticeUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		55AB10B62D0447EB00CF62F9 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		55AB10B62D0447EB00CF62F9 /* TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItem.swift; sourceTree = "<group>"; };
+		55AB10BA2D048C8700CF62F9 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		6E2B68FC03A974BE273E4858 /* Pods-DairySimbirSoftPracticeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPracticeTests.debug.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPracticeTests/Pods-DairySimbirSoftPracticeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		816E8352B2F70E570364ACCD /* Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.release.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		AEBF6D00D17B02936ECE920B /* Pods-DairySimbirSoftPractice.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPractice.debug.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice.debug.xcconfig"; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 		5519103C2D00EC580084AAE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				55AB10B62D0447EB00CF62F9 /* TaskModel.swift */,
+				55AB10B62D0447EB00CF62F9 /* TaskItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,8 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				5575E1E02CFC808400B1D4AF /* CalendarViewController.swift */,
-				552869AC2D01C6F0005C02A0 /* TaskInfoViewController.swift */,
 				552869AE2D01C713005C02A0 /* AddTaskViewController.swift */,
+				552869AC2D01C6F0005C02A0 /* TaskInfoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -137,6 +139,7 @@
 		5519103F2D00EC930084AAE7 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				55AB10BA2D048C8700CF62F9 /* DataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -459,7 +462,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55AB10B72D0447EB00CF62F9 /* TaskModel.swift in Sources */,
+				55AB10B72D0447EB00CF62F9 /* TaskItem.swift in Sources */,
+				55AB10BB2D048C8700CF62F9 /* DataService.swift in Sources */,
 				5575E1E12CFC808400B1D4AF /* CalendarViewController.swift in Sources */,
 				552869AD2D01C6F0005C02A0 /* TaskInfoViewController.swift in Sources */,
 				5575E1DD2CFC808400B1D4AF /* AppDelegate.swift in Sources */,

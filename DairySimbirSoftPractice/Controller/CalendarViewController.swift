@@ -9,6 +9,7 @@ import UIKit
 
 class CalendarViewController: UIViewController {
 
+    let dataService = DataService()
     @IBOutlet weak var datePicker: UIDatePicker!
 
     override func viewDidLoad() {
@@ -23,6 +24,11 @@ class CalendarViewController: UIViewController {
         guard segue.identifier == "showAddTaskScene" else { return }
         guard let destination = segue.destination as? AddTaskViewController else { return }
         destination.taskDate = datePicker.date
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("Load from Realm:")
+        print(dataService.loadTasks())
     }
     
 }

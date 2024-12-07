@@ -9,7 +9,7 @@ import UIKit
 
 class AddTaskViewController: UIViewController {
     
-//    var taskDate: Date
+    let dataService = DataService()
     var taskDate: Date?
     @IBOutlet weak var taskTitle: UITextField!
     @IBOutlet weak var taskDatePicker: UIDatePicker!
@@ -22,6 +22,10 @@ class AddTaskViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         print("Now call write to Realm service")
+        let task = TaskItem()
+        //TODO не добавлять пустые
+        task.name = taskTitle.text ?? ""
+        dataService.addTask(task)
     }
     
     
