@@ -9,13 +9,18 @@ import UIKit
 
 class TaskInfoViewController: UIViewController {
 
+    let dataService = DataService()
     @IBOutlet weak var taskTitle: UILabel!
     @IBOutlet weak var taskDate: UILabel!
     @IBOutlet weak var taskText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print(dataService.loadTasks())
+        //TODO get data
+        //TODO
+
+
     }
 
 

@@ -30,7 +30,6 @@ class CalendarViewController: UIViewController {
         print("Load from Realm:")
         print(dataService.loadTasks())
     }
-    
 }
 
 
