@@ -12,20 +12,26 @@ class AddTaskViewController: UIViewController {
     let dataService = DataService()
     var taskDate: Date?
     @IBOutlet weak var taskTitle: UITextField!
-    @IBOutlet weak var taskDatePicker: UIDatePicker!
-    @IBOutlet weak var taskText: UITextView!
+    @IBOutlet weak var startDatePicker: UIDatePicker!
+    @IBOutlet weak var finishDatePicker: UIDatePicker!
+    @IBOutlet weak var taskDescripton: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskDatePicker.setDate(taskDate!, animated: false)
+        startDatePicker.setDate(taskDate!, animated: false)
+        finishDatePicker.setDate(taskDate! + TimeInterval(3600), animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         print("Now call write to Realm service")
-        print(taskDatePicker.date)
+        print(startDatePicker.date)
         let task = TaskItem()
         //TODO не добавлять пустые
         task.name = taskTitle.text ?? ""
+        task.date_start = startDatePicker.date
+        task.date_finish = finishDatePicker.date
+        task.desc = taskDescripton.text
+        
         dataService.addTask(task)
     }
 }

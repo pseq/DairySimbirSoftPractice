@@ -28,37 +28,58 @@ class CalendarViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         print("Load from Realm:")
-//        print(dataService.loadTasks())
+        print(dataService.loadTasks())
     }
     
-    private var data = [
-    "8:00   Проснуться",
-    "8:30   Выпить кофе",
-    "23:00  Лечь спать"
+    private var taskData = [
+    "Проснуться",
+    "Выпить кофе",
+    "Выпить кофе",
+    "Выпить кофе",
+    "Лечь спать"
     ]
-
-
+    private var taskTime = [
+    "8:00",
+    "8:30",
+    "9:00",
+    "9:20",
+    "23:00"
+    ]
+    private var sectTitle = [
+    "8:00 - 9:00",
+    "9:00 - 10:00",
+    "23:00 - 0:00"
+    ]
 }
 
 extension CalendarViewController: UITableViewDataSource {
-    
+
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        // посчитать количество занятых часов в день
+//        return 3
+//    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //        return dishes?.count ?? 1
-        print(dataService.loadTasks())
-        return 3
+        // посчитать количество дел на каждый час
+//        if section == 0 { return 2 }
+//        else if section == 1 { return 2 }
+//        else if section == 2 { return 1 }
+//        else {return 0}
+        return dataService.loadTasks().count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // для каждого часа посчитать номер ячейки в часе
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
-    //        let dish = dishes?[indexPath.item]
-    //        var content = cell.defaultContentConfiguration()
-    //        content.text = dish?.name ?? "No dishes"
-
-        cell.textLabel?.text = self.data[indexPath.row]
-        print("Make cell with text:")
-        print(self.data[indexPath.row])
+//        cell.textLabel?.text = self.taskData[indexPath.row] // text
+//        cell.detailTextLabel?.text = self.taskTime[indexPath.row]    // time
+//        cell.textLabel?.text =
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sectTitle[section]
     }
     
     //    func loadDishes() {
