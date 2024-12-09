@@ -11,6 +11,7 @@ import RealmSwift
 struct DataService {
     let realm = try! Realm()
 
+
     func loadTasks() -> Results<TaskItem> {
     //TODO why self
         return realm.objects(TaskItem.self)

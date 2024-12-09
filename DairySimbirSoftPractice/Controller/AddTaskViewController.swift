@@ -18,17 +18,14 @@ class AddTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         taskDatePicker.setDate(taskDate!, animated: false)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         print("Now call write to Realm service")
+        print(taskDatePicker.date)
         let task = TaskItem()
         //TODO не добавлять пустые
         task.name = taskTitle.text ?? ""
         dataService.addTask(task)
     }
-    
-    
-    
 }
