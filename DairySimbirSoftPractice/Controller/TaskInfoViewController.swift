@@ -16,7 +16,7 @@ class TaskInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(dataService.loadTasks())
+//        print(dataService.loadTasks())
         //TODO get data
         //TODO
 

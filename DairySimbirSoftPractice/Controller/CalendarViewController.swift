@@ -10,10 +10,13 @@ import UIKit
 class CalendarViewController: UIViewController {
 
     let dataService = DataService()
+    var tasksForDate = [TaskItem]()
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var taskTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
     }
 
     @IBAction func addTaskBtnPressed(_ sender: UIBarButtonItem) {
@@ -26,61 +29,52 @@ class CalendarViewController: UIViewController {
         destination.taskDate = datePicker.date
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    @objc func onDateChanged(sender: UIDatePicker) {
         print("Load from Realm:")
-        print(dataService.loadTasks())
+        print(dataService.loadTasks(datePicker.date))
+        tasksForDate = dataService.loadTasks(datePicker.date)
+        taskTableView.reloadData()
     }
     
-    private var taskData = [
-    "Проснуться",
-    "Выпить кофе",
-    "Выпить кофе",
-    "Выпить кофе",
-    "Лечь спать"
-    ]
-    private var taskTime = [
-    "8:00",
-    "8:30",
-    "9:00",
-    "9:20",
-    "23:00"
-    ]
-    private var sectTitle = [
-    "8:00 - 9:00",
-    "9:00 - 10:00",
-    "23:00 - 0:00"
-    ]
+    override func viewWillAppear(_ animated: Bool) {
+        print("Load from Realm:")
+        print(dataService.loadTasks(datePicker.date))
+        tasksForDate = dataService.loadTasks(datePicker.date)
+        taskTableView.reloadData()
+    }
 }
 
 extension CalendarViewController: UITableViewDataSource {
 
 //    func numberOfSections(in tableView: UITableView) -> Int {
 //        // посчитать количество занятых часов в день
-//        return 3
+//    return tasksForDate.count
 //    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // посчитать количество дел на каждый час
+//         посчитать количество дел на каждый час
 //        if section == 0 { return 2 }
 //        else if section == 1 { return 2 }
 //        else if section == 2 { return 1 }
 //        else {return 0}
-        return dataService.loadTasks().count
+        return tasksForDate.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // для каждого часа посчитать номер ячейки в часе
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
-//        cell.textLabel?.text = self.taskData[indexPath.row] // text
-//        cell.detailTextLabel?.text = self.taskTime[indexPath.row]    // time
-//        cell.textLabel?.text =
+        cell.textLabel?.text = tasksForDate[indexPath.row].name             // text
+        
+        let formatter = DateFormatter()
+        formatter.timeStyle = .medium
+        cell.detailTextLabel?.text = formatter.string(from: tasksForDate[indexPath.row].date_start) // time
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sectTitle[section]
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return self.sectTitle[section]
+//    }
     
     //    func loadDishes() {
     //        dishes = realm.objects(Dishes.self).sorted(byKeyPath: "name")
