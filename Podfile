@@ -6,7 +6,8 @@ target 'DairySimbirSoftPractice' do
   use_frameworks!
 
   # Pods for DairySimbirSoftPractice
-  pod 'SwiftLint', '~> 0.49.0'
+  # pod 'SwiftLint', '0.48.0'
+  # pod 'SwiftLint'
   pod 'RealmSwift'
 
 

@@ -23,13 +23,10 @@ class AddTaskViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        print("Now call write to Realm service")
-        print(startDatePicker.date)
         let task = TaskItem()
         //TODO не добавлять пустые
         task.name = taskTitle.text ?? ""
         task.date_start = startDatePicker.date
-        print("Дата с датапикера: \(startDatePicker.date)")
         task.date_finish = finishDatePicker.date
         task.desc = taskDescripton.text
         

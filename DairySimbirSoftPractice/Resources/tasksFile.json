@@ -1,14 +1,14 @@
 [
 {
-"id":1,
-"date_start":"1733727600", "date_finish":"1733731200", "name":"Проснуться вовремя", "description":"Очень сложно"
+"id": 1,
+"date_start":1733727600, "date_finish":1733731200, "name":"Проснуться вовремя", "description":"Очень сложно"
 },
 {
-"id":2,
-"date_start":"1733731200", "date_finish":"1733734800", "name":"Выпить кофе", "description":"О, да!"
+"id": 2,
+"date_start":1733731200, "date_finish":1733734800, "name":"Выпить кофе", "description":"О, да!"
 },
 {
-"id":3,
-"date_start":"1733781600", "date_finish":"1733785200", "name":"Лечь вовремя", "description":"Невозможно"
+"id": 3,
+"date_start":1733781600, "date_finish":1733785200, "name":"Лечь вовремя", "description":"Невозможно"
 }
 ]

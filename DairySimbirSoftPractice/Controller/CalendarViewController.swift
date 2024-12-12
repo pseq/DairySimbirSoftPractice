@@ -17,6 +17,10 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
+        
+        //TO DEL
+//        try? dataService.addTaskFromFile("tasksFile.json")
+        try? dataService.addTaskFromFile("tasksFile")
     }
 
     @IBAction func addTaskBtnPressed(_ sender: UIBarButtonItem) {
@@ -30,15 +34,12 @@ class CalendarViewController: UIViewController {
     }
     
     @objc func onDateChanged(sender: UIDatePicker) {
-        print("Load from Realm:")
-        print(dataService.loadTasks(datePicker.date))
         tasksForDate = dataService.loadTasks(datePicker.date)
         taskTableView.reloadData()
+        print(tasksForDate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Load from Realm:")
-        print(dataService.loadTasks(datePicker.date))
         tasksForDate = dataService.loadTasks(datePicker.date)
         taskTableView.reloadData()
     }

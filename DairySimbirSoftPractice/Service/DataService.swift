@@ -13,10 +13,6 @@ struct DataService {
 
 
     func loadTasks(_ taskDate: Date) -> [TaskItem] {
-//    TODO why self
-        print("Ограничение >= \(taskDate.getDatePlusDays(0))")
-        print("Ограничение < \(taskDate.getDatePlusDays(1))")
-        
         let filteredTasks = realm.objects(TaskItem.self).where {
             $0.date_start >= taskDate.getDatePlusDays(0) &&
             $0.date_start < taskDate.getDatePlusDays(1)
@@ -30,15 +26,18 @@ struct DataService {
 
     func addTask(_ task: TaskItem) {
         do {
+            let maxId = realm.objects(TaskItem.self).max(ofProperty: "id") as Int?
+            task.id = (maxId ?? 0) + 1
             try realm.write {
                 realm.add(task)
             }
         } catch {
             print("Error save to Realm: \(error)")
         }
-        
     }
 }
+
+
 
 extension Date {
 
@@ -51,3 +50,33 @@ extension Date {
     }
 }
 
+extension DataService {
+    
+    enum Error: Swift.Error {
+        case fileNotFound(name: String)
+        case fileDecodingFailed(name: String, Swift.Error)
+    }
+    
+    
+    func addTaskFromFile(_ fileName: String) throws {
+        guard let url = Bundle.main.url(forResource: fileName, withExtension: "json")
+        else {
+            throw Error.fileNotFound(name: fileName)
+        }
+
+        do {
+            print(url)
+            let decoder = JSONDecoder()
+//            JSONDecoder().dateDecodingStrategy = .secondsSince1970
+            let jsonData = try Data(contentsOf: url)
+            let jsonTasks = try decoder.decode([TaskItem].self, from: jsonData)
+            
+            print("DECODED HERE:")
+            print(jsonTasks)
+            
+        } catch {
+            print("Error: \(error)")
+        }
+        
+    }
+}
