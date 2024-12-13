@@ -30,6 +30,8 @@ class AddTaskViewController: UIViewController {
         task.date_finish = finishDatePicker.date
         task.desc = taskDescripton.text
         
+        print("Here new ID: \(task.id)")
+        
         dataService.addTask(task)
     }
 }

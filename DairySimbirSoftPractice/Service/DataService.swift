@@ -26,8 +26,13 @@ struct DataService {
 
     func addTask(_ task: TaskItem) {
         do {
-            let maxId = realm.objects(TaskItem.self).max(ofProperty: "id") as Int?
-            task.id = (maxId ?? 0) + 1
+            
+            // ID generator
+            if task.id == 0 {
+                let maxId = realm.objects(TaskItem.self).max(ofProperty: "id") as Int?
+                task.id = (maxId ?? 0) + 1
+            }
+
             try realm.write {
                 realm.add(task)
             }
@@ -36,8 +41,6 @@ struct DataService {
         }
     }
 }
-
-
 
 extension Date {
 
@@ -65,14 +68,18 @@ extension DataService {
         }
 
         do {
-            print(url)
             let decoder = JSONDecoder()
-//            JSONDecoder().dateDecodingStrategy = .secondsSince1970
+            decoder.dateDecodingStrategy = .secondsSince1970
             let jsonData = try Data(contentsOf: url)
             let jsonTasks = try decoder.decode([TaskItem].self, from: jsonData)
-            
-            print("DECODED HERE:")
-            print(jsonTasks)
+
+            for jsonTask in jsonTasks {
+                if loadTasks(jsonTask.id) == nil {
+                    addTask(jsonTask)
+                } else {
+                    print("There is another task with same id in realm: \(jsonTask.id)")
+                }
+            }
             
         } catch {
             print("Error: \(error)")
