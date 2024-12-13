@@ -11,6 +11,9 @@ import RealmSwift
 struct DataService {
     let realm = try! Realm()
 
+    init() {
+        try? addTaskFromFile("tasksFile")
+    }
 
     func loadTasks(_ taskDate: Date) -> [TaskItem] {
         let filteredTasks = realm.objects(TaskItem.self).where {
@@ -35,10 +38,14 @@ struct DataService {
 
             try realm.write {
                 realm.add(task)
+                print("Date to realm: \(task.date_start)")
+                print("Date from realm: \(realm.object(ofType: TaskItem.self, forPrimaryKey: task.id)?.date_start)")
             }
         } catch {
             print("Error save to Realm: \(error)")
         }
+        
+
     }
 }
 
@@ -76,6 +83,9 @@ extension DataService {
             for jsonTask in jsonTasks {
                 if loadTasks(jsonTask.id) == nil {
                     addTask(jsonTask)
+                    
+                    print("Date from json: \(jsonTask.date_start)")
+
                 } else {
                     print("There is another task with same id in realm: \(jsonTask.id)")
                 }

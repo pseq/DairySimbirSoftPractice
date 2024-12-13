@@ -20,7 +20,6 @@ class CalendarViewController: UIViewController {
         
         //TO DEL
 //        try? dataService.addTaskFromFile("tasksFile.json")
-        try? dataService.addTaskFromFile("tasksFile")
     }
 
     @IBAction func addTaskBtnPressed(_ sender: UIBarButtonItem) {
