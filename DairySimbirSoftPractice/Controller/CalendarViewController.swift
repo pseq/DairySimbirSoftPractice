@@ -11,6 +11,8 @@ class CalendarViewController: UIViewController {
 
     let dataService = DataService()
     var tasksForDate = [TaskItem]()
+    
+//    var tasksByHours = [[TaskItem]]()
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var taskTableView: UITableView!
     
@@ -18,8 +20,36 @@ class CalendarViewController: UIViewController {
         super.viewDidLoad()
         datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
         
-        //TO DEL
-//        try? dataService.addTaskFromFile("tasksFile.json")
+
+    }
+    
+    private func hourGapLabel(_ hour: Int) -> String {
+        return "\(hour):00 - \((hour == 23) ? 0 : (hour + 1)):00"
+    }
+    
+    private func tasksByHours() -> [[TaskItem]] {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        let currentDayStart = datePicker.date.getDatePlusDays(0)
+        let nextDayStart = datePicker.date.getDatePlusDays(1)
+//        let dailyTasks = dailyTasks(currentDayStart, nextDayStart)
+        let dailyTasks = dataService.loadTasks().filter {
+            $0.date_start < (nextDayStart) &&
+            $0.date_finish >= (currentDayStart)
+        }
+//        var taskByHours = [[TaskItem]]()
+        var taskByHours = Array(repeating: [TaskItem](), count: 24)
+        
+        for dailyTask in dailyTasks {
+            let taskStartedYesterday = dailyTask.date_start < currentDayStart
+            let taskStartHour = taskStartedYesterday ? 0 : calendar.component(.hour, from: dailyTask.date_start)
+            let taskFinishTomorrow = dailyTask.date_finish > nextDayStart
+            let taskEndHour = taskFinishTomorrow ? 23 : calendar.component(.hour, from: dailyTask.date_finish)
+            for i in taskStartHour...taskEndHour {
+                taskByHours[i].append(dailyTask)
+            }
+        }
+        return taskByHours
     }
 
     @IBAction func addTaskBtnPressed(_ sender: UIBarButtonItem) {
@@ -33,14 +63,24 @@ class CalendarViewController: UIViewController {
     }
     
     @objc func onDateChanged(sender: UIDatePicker) {
-        tasksForDate = dataService.loadTasks(datePicker.date)
+//        tasksForDate = dataService.loadTasks(datePicker.date)
         taskTableView.reloadData()
-        print(tasksForDate)
+        print(tasksByHours())
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tasksForDate = dataService.loadTasks(datePicker.date)
+//        tasksForDate = dataService.loadTasks(datePicker.date)
         taskTableView.reloadData()
+        
+        //TEST
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        let hourPicker = calendar.component(.hour, from: datePicker.date)
+        let someTask = dataService.loadTasks().first
+        let hourTask = calendar.component(.hour, from: someTask!.date_start)
+        print("picker hour: \(hourPicker)")
+        print("task hour: \(hourTask)")
+        print("task date: \(someTask?.date_start)")
     }
 }
 

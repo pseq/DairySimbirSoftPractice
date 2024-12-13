@@ -15,12 +15,8 @@ struct DataService {
         try? addTaskFromFile("tasksFile")
     }
 
-    func loadTasks(_ taskDate: Date) -> [TaskItem] {
-        let filteredTasks = realm.objects(TaskItem.self).where {
-            $0.date_start >= taskDate.getDatePlusDays(0) &&
-            $0.date_start < taskDate.getDatePlusDays(1)
-        }
-        return filteredTasks.map { $0 }
+    func loadTasks() -> [TaskItem] {
+        return realm.objects(TaskItem.self).map({ $0 })
     }
 
     func loadTasks(_ taskId: Int) -> TaskItem? {
@@ -38,8 +34,8 @@ struct DataService {
 
             try realm.write {
                 realm.add(task)
-                print("Date to realm: \(task.date_start)")
-                print("Date from realm: \(realm.object(ofType: TaskItem.self, forPrimaryKey: task.id)?.date_start)")
+//                print("Date to realm: \(task.daƒte_start)")
+//                print("Date from realm: \(realm.object(ofType: TaskItem.self, forPrimaryKey: task.id)?.date_start)")
             }
         } catch {
             print("Error save to Realm: \(error)")
@@ -49,16 +45,7 @@ struct DataService {
     }
 }
 
-extension Date {
 
-    func getDatePlusDays(_ plusDays: Int) -> Date {
-        var dateComponents = Calendar.current.dateComponents([.year, .month, .day], from: self)
-        dateComponents.timeZone = TimeZone(abbreviation: "UTC")!
-        let onlyDate = Calendar.current.date(from: dateComponents)!
-        let datePlusDays = Calendar.current.date(byAdding: .day, value: plusDays, to: onlyDate)!
-        return datePlusDays
-    }
-}
 
 extension DataService {
     
