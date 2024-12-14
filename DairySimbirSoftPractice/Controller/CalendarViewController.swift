@@ -32,12 +32,10 @@ class CalendarViewController: UIViewController {
         calendar.timeZone = TimeZone(identifier: "UTC")!
         let currentDayStart = datePicker.date.getDatePlusDays(0)
         let nextDayStart = datePicker.date.getDatePlusDays(1)
-//        let dailyTasks = dailyTasks(currentDayStart, nextDayStart)
         let dailyTasks = dataService.loadTasks().filter {
             $0.date_start < (nextDayStart) &&
             $0.date_finish >= (currentDayStart)
         }
-//        var taskByHours = [[TaskItem]]()
         var taskByHours = Array(repeating: [TaskItem](), count: 24)
         
         for dailyTask in dailyTasks {
@@ -71,37 +69,18 @@ class CalendarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 //        tasksForDate = dataService.loadTasks(datePicker.date)
         taskTableView.reloadData()
-        
-        //TEST
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(identifier: "UTC")!
-        let hourPicker = calendar.component(.hour, from: datePicker.date)
-        let someTask = dataService.loadTasks().first
-        let hourTask = calendar.component(.hour, from: someTask!.date_start)
-        print("picker hour: \(hourPicker)")
-        print("task hour: \(hourTask)")
-        print("task date: \(someTask?.date_start)")
     }
 }
 
 extension CalendarViewController: UITableViewDataSource {
 
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        // посчитать количество занятых часов в день
-//    return tasksForDate.count
-//    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//         посчитать количество дел на каждый час
-//        if section == 0 { return 2 }
-//        else if section == 1 { return 2 }
-//        else if section == 2 { return 1 }
-//        else {return 0}
+        // return taskbyhours non empty count
         return tasksForDate.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // для каждого часа посчитать номер ячейки в часе
+        // сделать массив занятых часов, и брать из него заголовки
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
         cell.textLabel?.text = tasksForDate[indexPath.row].name             // text
         
