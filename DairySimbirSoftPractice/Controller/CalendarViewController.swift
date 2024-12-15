@@ -7,18 +7,22 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, UITableViewDelegate {
 
     let dataService = DataService()
     var tasksForDate = [TaskItem]()
     
 //    var tasksByHours = [[TaskItem]]()
     @IBOutlet weak var datePicker: UIDatePicker!
-    @IBOutlet weak var taskTableView: UITableView!
+    @IBOutlet weak var hoursTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
+        
+        hoursTableView.delegate = self
+        hoursTableView.dataSource = self
+        hoursTableView.register(UINib(nibName: "HourCellView", bundle: nil), forCellReuseIdentifier: "HourCell")
     }
     
     private func hourGapLabel(_ hour: Int) -> String {
@@ -60,13 +64,13 @@ class CalendarViewController: UIViewController {
     
     @objc func onDateChanged(sender: UIDatePicker) {
 //        tasksForDate = dataService.loadTasks(datePicker.date)
-        taskTableView.reloadData()
-        print(tasksByHours())
+        hoursTableView.reloadData()
+//        print(tasksByHours())
     }
     
     override func viewWillAppear(_ animated: Bool) {
 //        tasksForDate = dataService.loadTasks(datePicker.date)
-        taskTableView.reloadData()
+        hoursTableView.reloadData()
     }
 }
 
@@ -74,20 +78,41 @@ extension CalendarViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return taskbyhours non empty count
-        return tasksForDate.count
+//        return tasksForDate.count
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // сделать массив занятых часов, и брать из него заголовки
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
-        cell.textLabel?.text = tasksForDate[indexPath.row].name             // text
-        
-        let formatter = DateFormatter()
-        formatter.timeStyle = .medium
-        cell.detailTextLabel?.text = formatter.string(from: tasksForDate[indexPath.row].date_start) // time
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HourCell", for: indexPath) as! HourCell  // swiftlint:disable:this force_cast
+//        cell.textLabel?.text = tasksForDate[indexPath.row].name             // text
+        cell.textLabel?.text = hourGapLabel(indexPath.row)             // text
+        cell.configure()
+
+//        let formatter = DateFormatter()
+//        formatter.timeStyle = .medium
+//        cell.detailTextLabel?.text = formatter.string(from: tasksForDate[indexPath.row].date_start) // time
         
         return cell
     }
+    
+    // Вычисление высоты ячейки основной таблицы
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let item = parentItems[indexPath.row]
+//        let childTableViewHeight = CGFloat(item.children.count * 44) // Предполагаем высота каждой строки дочерней таблицы 44 пункта
+//        return 44 + childTableViewHeight // Добавляем высоту для заголовка ячейки
+
+        let childTableViewHeight = CGFloat(2 * 44) // Предполагаем высота каждой строки дочерней таблицы 44 пункта
+        return 44 + childTableViewHeight // Добавляем высоту для заголовка ячейки
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
+//    
+//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return UITableView.automaticDimension
+//    }
     
 //    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        return self.sectTitle[section]
