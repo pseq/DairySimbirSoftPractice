@@ -79,7 +79,7 @@ extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // return taskbyhours non empty count
 //        return tasksForDate.count
-        return 1
+        return 3
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -102,7 +102,7 @@ extension CalendarViewController: UITableViewDataSource {
 //        let childTableViewHeight = CGFloat(item.children.count * 44) // Предполагаем высота каждой строки дочерней таблицы 44 пункта
 //        return 44 + childTableViewHeight // Добавляем высоту для заголовка ячейки
 
-        let childTableViewHeight = CGFloat(2 * 44) // Предполагаем высота каждой строки дочерней таблицы 44 пункта
+        let childTableViewHeight = CGFloat(4 * 44) // Предполагаем высота каждой строки дочерней таблицы 44 пункта
         return 44 + childTableViewHeight // Добавляем высоту для заголовка ячейки
     }
     
@@ -113,48 +113,4 @@ extension CalendarViewController: UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
 //    }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return self.sectTitle[section]
-//    }
-    
-    //    func loadDishes() {
-    //        dishes = realm.objects(Dishes.self).sorted(byKeyPath: "name")
-    //        tableView.reloadData()
-    //    }
-    //
-    //    func taskTable(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        //показать ингридиенты выбранного блюда
-    //        selectedDish = dishes![indexPath.row]
-    //        performSegue(withIdentifier: "showIngreds", sender: self)
-    //    }
-    //
-    //    func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //
-    //        let destinationVC = segue.destination as! IngredientsViewController
-    //        //указывает, какие ингридиенты показывать
-    //        destinationVC.selectedDish = selectedDish
-    //    }
-    //
-    //    func taskTable(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    //
-    //        let swipeDishLeft = UIContextualAction(style: .normal, title: "Delete") {
-    //            [weak self] (action, view, completionHandler) in self?.deleteDish(self!.dishes![indexPath.row])
-    //            completionHandler(true)
-    //      }
-    //        swipeDishLeft.backgroundColor = .systemRed
-    //
-    //        return UISwipeActionsConfiguration(actions: [swipeDishLeft])
-    //    }
-    //
-    //    func deleteDish (_ dish: Dishes) {
-    //        do {
-    //            try realm.write {
-    //                realm.delete(dish)
-    //                tableView.reloadData()
-    //            }
-    //        } catch {
-    //            print("Error delete dish: \(error)")
-    //        }
-    //    }
 }

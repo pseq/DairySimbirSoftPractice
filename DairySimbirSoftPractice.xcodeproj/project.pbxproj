@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		042D2BD72D0F60480029E38A /* HourCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042D2BD62D0F60480029E38A /* HourCellView.xib */; };
 		04D2D81B2D0ED09F007D1BB9 /* HourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2D81A2D0ED09F007D1BB9 /* HourCell.swift */; };
-		04D2D81D2D0ED0C8007D1BB9 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D2D81C2D0ED0C8007D1BB9 /* TaskCell.swift */; };
 		396C12CAC2A37F3A36A2CE01 /* Pods_DairySimbirSoftPractice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B06B10D217F2614DDEEC6DF2 /* Pods_DairySimbirSoftPractice.framework */; };
 		46C274A3B154AA6CB89FAFCA /* Pods_DairySimbirSoftPracticeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 148C5BDDC2ECE71861E9A6AD /* Pods_DairySimbirSoftPracticeTests.framework */; };
 		552869AD2D01C6F0005C02A0 /* TaskInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 552869AC2D01C6F0005C02A0 /* TaskInfoViewController.swift */; };
@@ -50,7 +49,6 @@
 /* Begin PBXFileReference section */
 		042D2BD62D0F60480029E38A /* HourCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = HourCellView.xib; path = DairySimbirSoftPractice/Controller/HourCellView.xib; sourceTree = SOURCE_ROOT; };
 		04D2D81A2D0ED09F007D1BB9 /* HourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourCell.swift; sourceTree = SOURCE_ROOT; };
-		04D2D81C2D0ED0C8007D1BB9 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskCell.swift; path = DairySimbirSoftPractice/TaskCell.swift; sourceTree = SOURCE_ROOT; };
 		148C5BDDC2ECE71861E9A6AD /* Pods_DairySimbirSoftPracticeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DairySimbirSoftPracticeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A62E061137F6F57116C0171 /* Pods-DairySimbirSoftPractice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPractice.release.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice.release.xcconfig"; sourceTree = "<group>"; };
 		3FE4A317EAD7863CB79A7A89 /* Pods-DairySimbirSoftPracticeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairySimbirSoftPracticeTests.release.xcconfig"; path = "Target Support Files/Pods-DairySimbirSoftPracticeTests/Pods-DairySimbirSoftPracticeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				04D2D81A2D0ED09F007D1BB9 /* HourCell.swift */,
-				04D2D81C2D0ED0C8007D1BB9 /* TaskCell.swift */,
 				042D2BD62D0F60480029E38A /* HourCellView.xib */,
 			);
 			path = View;
@@ -506,7 +503,6 @@
 				5578EC072D0C90DB009ED0B4 /* DateExtension.swift in Sources */,
 				55AB10BB2D048C8700CF62F9 /* DataService.swift in Sources */,
 				04D2D81B2D0ED09F007D1BB9 /* HourCell.swift in Sources */,
-				04D2D81D2D0ED0C8007D1BB9 /* TaskCell.swift in Sources */,
 				5575E1E12CFC808400B1D4AF /* CalendarViewController.swift in Sources */,
 				552869AD2D01C6F0005C02A0 /* TaskInfoViewController.swift in Sources */,
 				5575E1DD2CFC808400B1D4AF /* AppDelegate.swift in Sources */,
