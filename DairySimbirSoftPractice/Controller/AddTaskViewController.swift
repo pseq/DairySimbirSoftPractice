@@ -24,12 +24,11 @@ class AddTaskViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         let task = TaskItem()
-        //TODO не добавлять пустые
+        // TODO не добавлять пустые
         task.name = taskTitle.text ?? ""
         task.date_start = startDatePicker.date
         task.date_finish = finishDatePicker.date
         task.desc = taskDescripton.text
-        
         
         dataService.addTask(task)
         print("Date from datapicker: \(startDatePicker.date)")

@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 struct DataService {
-    let realm = try! Realm()
+    let realm = try! Realm() // swiftlint:disable:this force_try
 
     init() {
         try? addTaskFromFile("tasksFile")
@@ -40,12 +40,8 @@ struct DataService {
         } catch {
             print("Error save to Realm: \(error)")
         }
-        
-
     }
 }
-
-
 
 extension DataService {
     
@@ -53,8 +49,7 @@ extension DataService {
         case fileNotFound(name: String)
         case fileDecodingFailed(name: String, Swift.Error)
     }
-    
-    
+        
     func addTaskFromFile(_ fileName: String) throws {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json")
         else {

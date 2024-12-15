@@ -19,8 +19,6 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
-        
-
     }
     
     private func hourGapLabel(_ hour: Int) -> String {
@@ -43,8 +41,8 @@ class CalendarViewController: UIViewController {
             let taskStartHour = taskStartedYesterday ? 0 : calendar.component(.hour, from: dailyTask.date_start)
             let taskFinishTomorrow = dailyTask.date_finish > nextDayStart
             let taskEndHour = taskFinishTomorrow ? 23 : calendar.component(.hour, from: dailyTask.date_finish)
-            for i in taskStartHour...taskEndHour {
-                taskByHours[i].append(dailyTask)
+            for hour in taskStartHour...taskEndHour {
+                taskByHours[hour].append(dailyTask)
             }
         }
         return taskByHours
@@ -135,4 +133,3 @@ extension CalendarViewController: UITableViewDataSource {
     //        }
     //    }
 }
-

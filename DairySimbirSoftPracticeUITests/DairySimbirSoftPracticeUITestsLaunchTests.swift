@@ -7,9 +7,9 @@
 
 import XCTest
 
-final class DairySimbirSoftPracticeUITestsLaunchTests: XCTestCase {
+final class DairySimbirSoftPracticeUITestsLaunchTests: XCTestCase { // swiftlint:disable:this type_name
 
-    override class var runsForEachTargetApplicationUIConfiguration: Bool {
+    override class var runsForEachTargetApplicationUIConfiguration: Bool {  // swiftlint:disable:this identifier_name
         true
     }
 
