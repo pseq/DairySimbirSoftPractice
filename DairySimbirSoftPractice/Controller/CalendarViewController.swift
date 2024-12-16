@@ -88,7 +88,7 @@ extension CalendarViewController: UITableViewDataSource {
         let tasksCount = tasksByHours[currentHour]?.count ?? 0
         
         let childTableViewHeight = CGFloat(tasksCount * 44) // Предполагаем высота каждой строки дочерней таблицы 44 пункта
-        return 44 + childTableViewHeight // Добавляем высоту для заголовка ячейки
+        return 44 + childTableViewHeight
     }
     
     //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

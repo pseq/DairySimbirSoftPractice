@@ -65,9 +65,7 @@ extension DataService {
             for jsonTask in jsonTasks {
                 if loadTasks(jsonTask.id) == nil {
                     addTask(jsonTask)
-                    
-                    print("Date from json: \(jsonTask.date_start)")
-
+//                    print("Date from json: \(jsonTask.date_start)")
                 } else {
                     print("There is another task with same id in realm: \(jsonTask.id)")
                 }

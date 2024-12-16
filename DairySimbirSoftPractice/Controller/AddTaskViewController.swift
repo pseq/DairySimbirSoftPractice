@@ -20,6 +20,16 @@ class AddTaskViewController: UIViewController {
         super.viewDidLoad()
         startDatePicker.setDate(taskDate!, animated: false)
         finishDatePicker.setDate(taskDate! + TimeInterval(3600), animated: false)
+        startDatePicker.addTarget(self, action: #selector(onStartDateChanged(sender:)), for: .valueChanged)
+        finishDatePicker.addTarget(self, action: #selector(onFinishChanged(sender:)), for: .valueChanged)
+    }
+    
+    @objc func onStartDateChanged(sender: UIDatePicker) {
+        finishDatePicker.minimumDate = startDatePicker.date
+    }
+    
+    @objc func onFinishChanged(sender: UIDatePicker) {
+        startDatePicker.maximumDate = finishDatePicker.date
     }
     
     override func viewWillDisappear(_ animated: Bool) {
