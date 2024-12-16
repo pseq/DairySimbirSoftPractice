@@ -12,23 +12,19 @@ class  HourCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var  taskTableView: UITableView!
     
-//    var children: [ChildItem] = []
+    var tasksToHour = [TaskItem]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         taskTableView.delegate = self
         taskTableView.dataSource = self
         taskTableView.register(UITableViewCell.self, forCellReuseIdentifier: "taskCell")
+        taskTableView.isScrollEnabled = false
     }
     
-//    func configure(with item: ParentItem) {
-//        titleLabel.text = item.title
-//        children = item.children
-//        childTableView.reloadData()
-//    }
-
-    func configure() {
-        titleLabel.text = "hour text"
+    func configure(_ hour: Int, _ tasks: [TaskItem]?) {
+        titleLabel.text = "\(hour):00 - \((hour == 23) ? 0 : (hour + 1)):00"
+        tasksToHour = tasks ?? []
         taskTableView.reloadData()
     }
 }
@@ -36,14 +32,15 @@ class  HourCell: UITableViewCell {
 extension HourCell: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // return tasks count in current hour
-        return 4
+        return tasksToHour.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
-        cell.textLabel?.text = "task text"           // text
-        print("Вывод ячейки  дела \(indexPath.description):\(indexPath.row)")
+        let task = tasksToHour[indexPath.row]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm d/MM/yy"
+        cell.textLabel?.text = task.name + " c: " + dateFormatter.string(from: task.date_start)
         return cell
     }
 }
