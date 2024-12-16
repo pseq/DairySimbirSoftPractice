@@ -19,7 +19,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
-        
         hoursTableView.delegate = self
         hoursTableView.dataSource = self
         hoursTableView.register(UINib(nibName: "HourCellView", bundle: nil), forCellReuseIdentifier: "HourCell")
@@ -31,7 +30,6 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
     }
     
     @objc func onDateChanged(sender: UIDatePicker) {
-        //        tasksForDate = dataService.loadTasks(datePicker.date)
         tasksByHoursDistribution()
         hoursTableView.reloadData()
     }
@@ -42,7 +40,6 @@ extension CalendarViewController {
     
     private func tasksByHoursDistribution() {
         var calendar = Calendar.current
-        calendar.timeZone = TimeZone(identifier: "UTC")!
         let currentDayStart = datePicker.date.getDatePlusDays(0)
         let nextDayStart = datePicker.date.getDatePlusDays(1)
         let dailyTasks = dataService.loadTasks().filter {

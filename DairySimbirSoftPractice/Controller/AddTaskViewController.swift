@@ -24,7 +24,7 @@ class AddTaskViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         let task = TaskItem()
-        // TODO не добавлять пустые
+        // TODO не добавлять пустые, проверять, и докручивать время
         task.name = taskTitle.text ?? ""
         task.date_start = startDatePicker.date
         task.date_finish = finishDatePicker.date
