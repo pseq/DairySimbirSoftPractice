@@ -23,11 +23,22 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
         hoursTableView.delegate = self
         hoursTableView.dataSource = self
         hoursTableView.register(UINib(nibName: "HourCellView", bundle: nil), forCellReuseIdentifier: "HourCell")
+        hoursTableView.reloadData()
     }
     
     private func hourGapLabel(_ hour: Int) -> String {
         return "\(hour):00 - \((hour == 23) ? 0 : (hour + 1)):00"
     }
+    
+    @objc func onDateChanged(sender: UIDatePicker) {
+//        tasksForDate = dataService.loadTasks(datePicker.date)
+        hoursTableView.reloadData()
+//        print(tasksByHours())
+    }
+}
+
+// MARK: Tasks by hours distribution logic -
+extension CalendarViewController {
     
     private func tasksByHours() -> [[TaskItem]] {
         var calendar = Calendar.current
@@ -51,29 +62,9 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
         }
         return taskByHours
     }
-
-    @IBAction func addTaskBtnPressed(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "showAddTaskScene", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "showAddTaskScene" else { return }
-        guard let destination = segue.destination as? AddTaskViewController else { return }
-        destination.taskDate = datePicker.date
-    }
-    
-    @objc func onDateChanged(sender: UIDatePicker) {
-//        tasksForDate = dataService.loadTasks(datePicker.date)
-        hoursTableView.reloadData()
-//        print(tasksByHours())
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-//        tasksForDate = dataService.loadTasks(datePicker.date)
-        hoursTableView.reloadData()
-    }
 }
 
+// MARK: Task table view -
 extension CalendarViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,4 +104,17 @@ extension CalendarViewController: UITableViewDataSource {
 //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return UITableView.automaticDimension
 //    }
+}
+
+// MARK: Nav buttons -
+extension CalendarViewController {
+    @IBAction func addTaskBtnPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "showAddTaskScene", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showAddTaskScene" else { return }
+        guard let destination = segue.destination as? AddTaskViewController else { return }
+        destination.taskDate = datePicker.date
+    }
 }

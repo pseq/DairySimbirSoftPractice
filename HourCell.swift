@@ -41,7 +41,7 @@ extension HourCell: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)// as! TaskCell   // swiftlint:disable:this force_cast
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
         cell.textLabel?.text = "task text"           // text
         print("Вывод ячейки  дела \(indexPath.description):\(indexPath.row)")
         return cell

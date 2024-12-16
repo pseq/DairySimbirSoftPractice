@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="IBm-67-B4w">
-                                <rect key="frame" x="0.0" y="64" width="320" height="324.5"/>
+                                <rect key="frame" x="2" y="62" width="320" height="326.5"/>
                             </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="maD-eW-ad6" userLabel="Hours Table View">
-                                <rect key="frame" x="0.0" y="388.5" width="320" height="179.5"/>
+                                <rect key="frame" x="2" y="383.5" width="320" height="184.5"/>
                                 <connections>
                                     <outlet property="dataSource" destination="W8w-AC-S5R" id="yWZ-fJ-H96"/>
                                 </connections>
@@ -30,12 +30,13 @@
                         <viewLayoutGuide key="safeArea" id="d73-Wp-lKc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="IBm-67-B4w" firstAttribute="top" secondItem="d73-Wp-lKc" secondAttribute="top" id="3xY-mK-VGp"/>
-                            <constraint firstItem="maD-eW-ad6" firstAttribute="trailing" secondItem="d73-Wp-lKc" secondAttribute="trailing" id="DTa-Q6-wa6"/>
-                            <constraint firstItem="maD-eW-ad6" firstAttribute="leading" secondItem="d73-Wp-lKc" secondAttribute="leading" id="MPw-gA-5nZ"/>
-                            <constraint firstItem="maD-eW-ad6" firstAttribute="bottom" secondItem="d73-Wp-lKc" secondAttribute="bottom" id="TcV-GA-kXl"/>
-                            <constraint firstItem="maD-eW-ad6" firstAttribute="top" secondItem="IBm-67-B4w" secondAttribute="bottom" id="eeL-DJ-M09"/>
-                            <constraint firstItem="IBm-67-B4w" firstAttribute="centerX" secondItem="UVZ-d1-veE" secondAttribute="centerX" id="qTJ-kN-Vig"/>
+                            <constraint firstItem="IBm-67-B4w" firstAttribute="leading" secondItem="d73-Wp-lKc" secondAttribute="leading" constant="2" id="52Y-xb-pmb"/>
+                            <constraint firstItem="maD-eW-ad6" firstAttribute="top" secondItem="IBm-67-B4w" secondAttribute="bottom" constant="-5" id="645-Vy-qpd"/>
+                            <constraint firstItem="maD-eW-ad6" firstAttribute="bottom" secondItem="d73-Wp-lKc" secondAttribute="bottom" id="EGD-ao-Ik6"/>
+                            <constraint firstItem="IBm-67-B4w" firstAttribute="top" secondItem="d73-Wp-lKc" secondAttribute="top" constant="-2" id="bwT-h8-xwp"/>
+                            <constraint firstItem="maD-eW-ad6" firstAttribute="trailing" secondItem="d73-Wp-lKc" secondAttribute="trailing" constant="2" id="eEB-xE-1FC"/>
+                            <constraint firstItem="maD-eW-ad6" firstAttribute="leading" secondItem="d73-Wp-lKc" secondAttribute="leading" constant="2" id="ehx-sL-BgR"/>
+                            <constraint firstItem="IBm-67-B4w" firstAttribute="trailing" secondItem="d73-Wp-lKc" secondAttribute="trailing" constant="2" id="i50-Wa-ruv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dairy" id="6bg-w9-J5g">
