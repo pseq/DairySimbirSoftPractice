@@ -11,8 +11,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
     
     let dataService = DataService()
     var tasksByHours = [Int: [TaskItem]]()
+    var taskToDetails = TaskItem()
     
-    //    var tasksByHours = [[TaskItem]]()
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var hoursTableView: UITableView!
     
@@ -39,7 +39,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
 extension CalendarViewController {
     
     private func tasksByHoursDistribution() {
-        var calendar = Calendar.current
+        let calendar = Calendar.current
         let currentDayStart = datePicker.date.getDatePlusDays(0)
         let nextDayStart = datePicker.date.getDatePlusDays(1)
         let dailyTasks = dataService.loadTasks().filter {
@@ -78,6 +78,7 @@ extension CalendarViewController: UITableViewDataSource {
         let currentHour = busyHours[indexPath.row]
         let currentHourTasks = tasksByHours[currentHour]
         cell.configure(currentHour, currentHourTasks)
+        cell.delegate = self
         return cell
     }
     
@@ -100,15 +101,28 @@ extension CalendarViewController: UITableViewDataSource {
     //    }
 }
 
-// MARK: Nav buttons -
-extension CalendarViewController {
+// MARK: Segues -
+extension CalendarViewController: HourCellDelegate {
+    
+    func showNextViewController(_ task: TaskItem) {
+        taskToDetails = task
+        performSegue(withIdentifier: "showTaskInfoScene", sender: self)
+    }
+    
     @IBAction func addTaskBtnPressed(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "showAddTaskScene", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == "showAddTaskScene" else { return }
-        guard let destination = segue.destination as? AddTaskViewController else { return }
-        destination.taskDate = datePicker.date
+        if segue.identifier == "showAddTaskScene" {
+            if let destination = segue.destination as? AddTaskViewController {
+                destination.taskDate = datePicker.date
+            }
+        } else if segue.identifier == "showTaskInfoScene" {
+            if let destination = segue.destination as? TaskInfoViewController {
+                destination.taskToDetails = taskToDetails
+            }
+        }
     }
+    
 }

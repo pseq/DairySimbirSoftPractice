@@ -49,8 +49,8 @@
                     <connections>
                         <outlet property="datePicker" destination="IBm-67-B4w" id="QGq-FM-LOU"/>
                         <outlet property="hoursTableView" destination="maD-eW-ad6" id="T2t-YL-Xaf"/>
-                        <segue destination="Pqz-84-jQc" kind="show" id="XN2-Ih-3fH"/>
                         <segue destination="wZE-Sy-ANQ" kind="show" identifier="showAddTaskScene" id="Bel-ED-OvA"/>
+                        <segue destination="Pqz-84-jQc" kind="show" identifier="showTaskInfoScene" id="dzZ-Zf-Ve4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIK-hH-9jB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -110,33 +110,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1o6-Jl-HjP" userLabel="Start Date Picker">
-                                <rect key="frame" x="114" y="121" width="189" height="37"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1o6-Jl-HjP" userLabel="Start Date Picker">
+                                <rect key="frame" x="84" y="118" width="220" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="DJE-iv-9ob"/>
+                                    <constraint firstAttribute="width" constant="220" id="km0-Gg-8fw"/>
+                                </constraints>
                                 <locale key="locale" localeIdentifier="en_GB"/>
                             </datePicker>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VT0-zp-E1c" userLabel="Finish Date Picker">
-                                <rect key="frame" x="114" y="166" width="189" height="37"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VT0-zp-E1c" userLabel="Finish Date Picker">
+                                <rect key="frame" x="84" y="162" width="220" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="Rgd-Pk-eZm"/>
+                                    <constraint firstAttribute="width" constant="220" id="Vqc-ab-ggB"/>
+                                </constraints>
                                 <locale key="locale" localeIdentifier="en_GB"/>
                             </datePicker>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t78-MR-KN7" userLabel="Task Description">
-                                <rect key="frame" x="16" y="211" width="288" height="126"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0GK-Gj-0Tx">
+                                <rect key="frame" x="16" y="74" width="288" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t78-MR-KN7" userLabel="Task Description">
+                                <rect key="frame" x="16" y="206" width="288" height="120"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0GK-Gj-0Tx">
-                                <rect key="frame" x="16" y="77" width="288" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hS0-4A-STK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0GK-Gj-0Tx" firstAttribute="leading" secondItem="hS0-4A-STK" secondAttribute="leading" constant="16" id="Bt0-bT-bny"/>
+                            <constraint firstItem="t78-MR-KN7" firstAttribute="leading" secondItem="hS0-4A-STK" secondAttribute="leading" constant="16" id="KCW-CR-WfN"/>
+                            <constraint firstItem="VT0-zp-E1c" firstAttribute="top" secondItem="1o6-Jl-HjP" secondAttribute="bottom" constant="8" symbolic="YES" id="LLQ-Y3-IuA"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="1o6-Jl-HjP" secondAttribute="trailing" constant="16" id="LOG-yt-uUn"/>
+                            <constraint firstItem="t78-MR-KN7" firstAttribute="top" secondItem="VT0-zp-E1c" secondAttribute="bottom" constant="8" symbolic="YES" id="OGk-RE-y2o"/>
+                            <constraint firstItem="1o6-Jl-HjP" firstAttribute="top" secondItem="0GK-Gj-0Tx" secondAttribute="bottom" constant="8" symbolic="YES" id="UPM-gD-rAM"/>
+                            <constraint firstItem="0GK-Gj-0Tx" firstAttribute="top" secondItem="hS0-4A-STK" secondAttribute="top" constant="10" id="UUq-dc-bOh"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="VT0-zp-E1c" secondAttribute="trailing" constant="16" id="hG3-ob-cnt"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="0GK-Gj-0Tx" secondAttribute="trailing" constant="16" id="hfV-Ha-xNL"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="bottom" secondItem="t78-MR-KN7" secondAttribute="bottom" constant="242" id="lig-dy-HzP"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="t78-MR-KN7" secondAttribute="trailing" constant="16" id="wJL-Qw-l4t"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" id="wqW-Eo-HfG" userLabel="Add Task"/>
                     <connections>

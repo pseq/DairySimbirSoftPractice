@@ -19,7 +19,7 @@ class AddTaskViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         startDatePicker.setDate(taskDate!, animated: false)
-        finishDatePicker.setDate(taskDate! + TimeInterval(3600), animated: false)
+        finishDatePicker.setDate(taskDate!, animated: false)
         startDatePicker.addTarget(self, action: #selector(onStartDateChanged(sender:)), for: .valueChanged)
         finishDatePicker.addTarget(self, action: #selector(onFinishChanged(sender:)), for: .valueChanged)
     }
@@ -34,7 +34,6 @@ class AddTaskViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         let task = TaskItem()
-        // TODO не добавлять пустые, проверять, и докручивать время
         task.name = taskTitle.text ?? ""
         task.date_start = startDatePicker.date
         task.date_finish = finishDatePicker.date

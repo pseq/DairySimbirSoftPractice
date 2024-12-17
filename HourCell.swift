@@ -10,9 +10,10 @@ import UIKit
 class  HourCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var  taskTableView: UITableView!
+    @IBOutlet weak var taskTableView: UITableView!
     
     var tasksToHour = [TaskItem]()
+    weak var delegate: HourCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,7 @@ class  HourCell: UITableViewCell {
         tasksToHour = tasks ?? []
         taskTableView.reloadData()
     }
+
 }
 
 extension HourCell: UITableViewDataSource, UITableViewDelegate {
@@ -43,4 +45,16 @@ extension HourCell: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = task.name + " c: " + dateFormatter.string(from: task.date_start)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = tasksToHour[indexPath.row]
+        delegate?.showNextViewController(task)
+    }
+}
+
+// MARK: Protocols -
+protocol HourCellDelegate: AnyObject {
+    
+    func showNextViewController(_  task: TaskItem)
+    
 }
