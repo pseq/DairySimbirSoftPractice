@@ -77,6 +77,7 @@ extension CalendarViewController: UITableViewDataSource {
         let busyHours = Array(tasksByHours.keys).sorted()
         let currentHour = busyHours[indexPath.row]
         let currentHourTasks = tasksByHours[currentHour]
+//        cell.isUserInteractionEnabled = false
         cell.configure(currentHour, currentHourTasks)
         cell.delegate = self
         return cell
@@ -92,13 +93,13 @@ extension CalendarViewController: UITableViewDataSource {
         return 44 + childTableViewHeight
     }
     
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return UITableView.automaticDimension
-    //    }
-    //
-    //    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        return UITableView.automaticDimension
-    //    }
+//        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//            return UITableView.automaticDimension
+//        }
+//    
+//        func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+//            return UITableView.automaticDimension
+//        }
 }
 
 // MARK: Segues -
