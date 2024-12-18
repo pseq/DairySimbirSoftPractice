@@ -42,21 +42,9 @@ extension HourCell: UITableViewDataSource, UITableViewDelegate {
         let task = tasksToHour[indexPath.row]
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm d/MM/yy"
-        cell.textLabel?.text = task.name + " c: " + dateFormatter.string(from: task.date_start)
+        cell.textLabel?.text = task.name + ": " + dateFormatter.string(from: task.date_start)
         return cell
     }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        let taskTableHeight = UITableView.automaticDimension
-//        print("automaticDimension: \(UITableView.automaticDimension)")
-//        return UITableView.automaticDimension
-//    }
-    
-//    
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        
-//        return UITableView.automaticDimension
-//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = tasksToHour[indexPath.row]
