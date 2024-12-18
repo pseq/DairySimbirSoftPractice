@@ -38,7 +38,8 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
 // MARK: Tasks by hours distribution logic -
 extension CalendarViewController {
     
-    private func tasksByHoursDistribution() {
+//    private
+    func tasksByHoursDistribution() {
         let calendar = Calendar.current
         let currentDayStart = datePicker.date.getDatePlusDays(0)
         let nextDayStart = datePicker.date.getDatePlusDays(1)
@@ -68,29 +69,30 @@ extension CalendarViewController {
 // MARK: Task table view -
 extension CalendarViewController: UITableViewDataSource {
     
+    func hourByIndex(_ indexPathRow: Int) -> Int {
+        let busyHours = Array(tasksByHours.keys).sorted()
+        return busyHours[indexPathRow]
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasksByHours.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HourCell", for: indexPath) as! HourCell  // swiftlint:disable:this force_cast
-        let busyHours = Array(tasksByHours.keys).sorted()
-        let currentHour = busyHours[indexPath.row]
+        let currentHour = hourByIndex(indexPath.row)
         let currentHourTasks = tasksByHours[currentHour]
-//        cell.isUserInteractionEnabled = false
         cell.configure(currentHour, currentHourTasks)
         cell.delegate = self
         return cell
     }
     
-    // Вычисление высоты ячейки основной таблицы
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let busyHours = Array(tasksByHours.keys)
-        let currentHour = busyHours[indexPath.row]
+        let currentHour = hourByIndex(indexPath.row)
         let tasksCount = tasksByHours[currentHour]?.count ?? 0
         
-        let childTableViewHeight = CGFloat(tasksCount * 44) // Предполагаем высота каждой строки дочерней таблицы 44 пункта
-        return 44 + childTableViewHeight
+        let taskTableViewHeight = CGFloat(tasksCount * 44)
+        return 30 + taskTableViewHeight
     }
     
 //        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
