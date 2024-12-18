@@ -9,9 +9,9 @@ import UIKit
 
 class CalendarViewController: UIViewController, UITableViewDelegate {
     
-    let dataService = DataService()
     var tasksByHours = [Int: [TaskItem]]()
     var taskToDetails = TaskItem()
+    var taskDistributor: TasksDistributionProtocol?
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var hoursTableView: UITableView!
@@ -21,48 +21,18 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
         datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
         hoursTableView.delegate = self
         hoursTableView.dataSource = self
-        hoursTableView.register(UINib(nibName: "HourCellView", bundle: nil), forCellReuseIdentifier: "HourCell")
+        taskDistributor = TasksDistributor()
+        hoursTableView.register(UINib(nibName: "HourCellView", bundle: nil), forCellReuseIdentifier: "hourCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tasksByHoursDistribution()
+        tasksByHours =  taskDistributor?.tasksByHoursDistribution(datePicker.date) ?? [:]
         hoursTableView.reloadData()
     }
     
     @objc func onDateChanged(sender: UIDatePicker) {
-        tasksByHoursDistribution()
+        tasksByHours =  taskDistributor?.tasksByHoursDistribution(datePicker.date) ?? [:]
         hoursTableView.reloadData()
-    }
-}
-
-// MARK: Tasks by hours distribution logic -
-extension CalendarViewController {
-    
-//    private
-    func tasksByHoursDistribution() {
-        let calendar = Calendar.current
-        let currentDayStart = datePicker.date.getDatePlusDays(0)
-        let nextDayStart = datePicker.date.getDatePlusDays(1)
-        let dailyTasks = dataService.loadTasks().filter {
-            $0.date_start < (nextDayStart) &&
-            $0.date_finish >= (currentDayStart)
-        }
-        tasksByHours.removeAll()
-        
-        for dailyTask in dailyTasks {
-            let taskStartedYesterday = dailyTask.date_start < currentDayStart
-            let taskStartHour = taskStartedYesterday ? 0 : calendar.component(.hour, from: dailyTask.date_start)
-            let taskFinishTomorrow = dailyTask.date_finish > nextDayStart
-            let taskEndHour = taskFinishTomorrow ? 23 : calendar.component(.hour, from: dailyTask.date_finish - TimeInterval(1))
-            for hour in taskStartHour...taskEndHour {
-                
-                if tasksByHours[hour] == nil {
-                    tasksByHours[hour] = [dailyTask]
-                } else {
-                    tasksByHours[hour]!.append(dailyTask)
-                }
-            }
-        }
     }
 }
 
@@ -79,7 +49,7 @@ extension CalendarViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HourCell", for: indexPath) as! HourCell  // swiftlint:disable:this force_cast
+        let cell = tableView.dequeueReusableCell(withIdentifier: "hourCell", for: indexPath) as! HourCell  // swiftlint:disable:this force_cast
         let currentHour = hourByIndex(indexPath.row)
         let currentHourTasks = tasksByHours[currentHour]
         cell.configure(currentHour, currentHourTasks)

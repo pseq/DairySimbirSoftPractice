@@ -36,7 +36,7 @@ final class DairySimbirSoftPracticeTests: XCTestCase {
         var tasksByHours = [Int: [TaskItem]]()
         var taskToDetails = TaskItem()
         
-        calendarViewController.tasksByHoursDistribution()
+//        calendarViewController.sut_tasksByHoursDistribution()
         
         
     }

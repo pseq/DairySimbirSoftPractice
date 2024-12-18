@@ -40,6 +40,5 @@ class AddTaskViewController: UIViewController {
         task.desc = taskDescripton.text
         
         dataService.addTask(task)
-        print("Date from datapicker: \(startDatePicker.date)")
     }
 }
