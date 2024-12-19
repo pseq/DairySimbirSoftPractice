@@ -9,7 +9,7 @@ import UIKit
 
 class CalendarViewController: UIViewController, UITableViewDelegate {
     
-    var tasksByHours = [Int: [TaskItem]]()
+    var tasksByHours = [Int: [TaskItem]]() // Номер часа в сутках : список задач на этот час
     var taskToDetails = TaskItem()
     var taskDistributor: TasksDistributionProtocol?
     
@@ -26,11 +26,13 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // Будем распределять список задач на каждый час суток при каждом появлении
         tasksByHours =  taskDistributor?.tasksByHoursDistribution(datePicker.date) ?? [:]
         hoursTableView.reloadData()
     }
     
     @objc func onDateChanged(sender: UIDatePicker) {
+        // ...и при изменении даты в календаре
         tasksByHours =  taskDistributor?.tasksByHoursDistribution(datePicker.date) ?? [:]
         hoursTableView.reloadData()
     }
@@ -39,6 +41,7 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
 // MARK: Task table view -
 extension CalendarViewController: UITableViewDataSource {
     
+    // Отсортированный для вывода в  таблицу список часов, на которые есть задачи на текущую дату
     func hourByIndex(_ indexPathRow: Int) -> Int {
         let busyHours = Array(tasksByHours.keys).sorted()
         return busyHours[indexPathRow]

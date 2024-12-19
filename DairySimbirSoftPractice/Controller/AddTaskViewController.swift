@@ -18,17 +18,19 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startDatePicker.setDate(taskDate!, animated: false)
+        startDatePicker.setDate(taskDate!, animated: false) //  Сразу установим на текущее время
         finishDatePicker.setDate(taskDate!, animated: false)
         startDatePicker.addTarget(self, action: #selector(onStartDateChanged(sender:)), for: .valueChanged)
         finishDatePicker.addTarget(self, action: #selector(onFinishChanged(sender:)), for: .valueChanged)
     }
     
     @objc func onStartDateChanged(sender: UIDatePicker) {
+        // Время окончания задачи не должно быть раньше времени её начала
         finishDatePicker.minimumDate = startDatePicker.date
     }
     
     @objc func onFinishChanged(sender: UIDatePicker) {
+        // Время начала задачи не должно быть позже времени её окончания
         startDatePicker.maximumDate = finishDatePicker.date
     }
     
