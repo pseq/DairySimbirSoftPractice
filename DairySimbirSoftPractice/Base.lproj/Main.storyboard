@@ -12,7 +12,7 @@
         <!--Dairy-->
         <scene sceneID="XG5-fv-CJU">
             <objects>
-                <viewController id="W8w-AC-S5R" customClass="CalendarViewController" customModule="DairySimbirSoftPractice" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarViewController" id="W8w-AC-S5R" customClass="CalendarViewController" customModule="DairySimbirSoftPractice" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UVZ-d1-veE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

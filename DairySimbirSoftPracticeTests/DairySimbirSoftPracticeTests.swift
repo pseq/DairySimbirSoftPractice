@@ -10,34 +10,38 @@ import XCTest
 
 final class DairySimbirSoftPracticeTests: XCTestCase {
     
-    var calendarViewController: CalendarViewController!
-
+    var tasksDistributor: TasksDistributor!
+    var calendarController: CalendarViewController!
+    let december131027 = Date(timeIntervalSince1970: 1734085651) // GMT: Friday, 13 December 2024 г., 10:27:31
+    let december131227 = Date(timeIntervalSince1970: 1734092851) // GMT: Friday, 13 December 2024 г., 12:27:31
+    let december121200 = Date(timeIntervalSince1970: 1734004800) // GMT: Friday, 12 December 2024 г., 12:00:00
+    var sut: CalendarViewController!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
         try super.setUpWithError()
-        calendarViewController = CalendarViewController()
+        tasksDistributor = TasksDistributor()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: String(describing: CalendarViewController.self))
+        sut = viewController as? CalendarViewController
+        sut.loadViewIfNeeded()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        calendarViewController = nil
+        tasksDistributor = nil
         try super.tearDownWithError()
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-
-        
-        var tasksByHours = [Int: [TaskItem]]()
-        var taskToDetails = TaskItem()
-        
-//        calendarViewController.sut_tasksByHoursDistribution()
-        
-        
+    
+    func testCalendarViewControllerLoaded() {
+        XCTAssertNotNil(sut.view, "CalendarViewController loaded")
+        XCTAssertNotNil(sut.datePicker, "datePicker loaded")
+        XCTAssertNotNil(sut.hoursTableView, "hoursTableView loaded")
+    }
+    
+    func testTasksDistributorCount() throws {
+        XCTAssertNotNil(tasksDistributor.dataService, "tasksDistributor data service not nil")
+        XCTAssertEqual(tasksDistributor.tasksByHoursDistribution(december131027).count, 3, "13 December 2024 is 3 hours")
+        XCTAssertEqual(tasksDistributor.tasksByHoursDistribution(december131227).count, 3, "13 December 2024 is 3 hours")
+        XCTAssertEqual(tasksDistributor.tasksByHoursDistribution(december121200).count, 0, "12 December 2024 is 0 hours")
     }
 
     func testPerformanceExample() throws {

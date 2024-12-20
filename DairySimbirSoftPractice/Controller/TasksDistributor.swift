@@ -13,11 +13,11 @@ protocol TasksDistributionProtocol {
 
 // Здесь распределяем список задач для каждого часа указанных суток
 struct TasksDistributor: TasksDistributionProtocol {
-    
+    let dataService = DataService()
+    let calendar = Calendar.current
+
     func tasksByHoursDistribution(_ date: Date) -> [Int: [TaskItem]] {
         var tasksByHours = [Int: [TaskItem]]()
-        let dataService = DataService()
-        let calendar = Calendar.current
         let currentDayStart = date.getDatePlusDays(0)
         let nextDayStart = date.getDatePlusDays(1)
         let dailyTasks = dataService.loadTasks().filter {
