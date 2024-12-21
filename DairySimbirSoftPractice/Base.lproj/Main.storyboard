@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nR4-Un-IaG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nR4-Un-IaG">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,25 +17,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="maD-eW-ad6" userLabel="Hours Table View">
-                                <rect key="frame" x="44" y="554" width="343" height="343.66666666666674"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="W8w-AC-S5R" id="yWZ-fJ-H96"/>
-                                </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQo-Re-Zaa" customClass="FSCalendar">
-                                <rect key="frame" x="20" y="103" width="390" height="405"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="PQo-Re-Zaa" customClass="FSCalendar">
+                                <rect key="frame" x="20" y="103" width="390" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="Hbn-kC-UrO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="firstWeekday">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="allowsMultipleSelection" value="NO"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="W8w-AC-S5R" id="gTU-IX-OLq"/>
                                     <outlet property="delegate" destination="W8w-AC-S5R" id="zwN-1I-fSC"/>
                                 </connections>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="maD-eW-ad6" userLabel="Hours Table View">
+                                <rect key="frame" x="20" y="361" width="390" height="537"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="W8w-AC-S5R" id="yWZ-fJ-H96"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d73-Wp-lKc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PQo-Re-Zaa" firstAttribute="top" secondItem="d73-Wp-lKc" secondAttribute="top" id="6qj-jl-7iC"/>
+                            <constraint firstItem="maD-eW-ad6" firstAttribute="top" secondItem="PQo-Re-Zaa" secondAttribute="bottom" constant="8" symbolic="YES" id="Aa9-jx-h9i"/>
+                            <constraint firstItem="PQo-Re-Zaa" firstAttribute="leading" secondItem="d73-Wp-lKc" secondAttribute="leading" constant="20" id="Wlo-yc-8dd"/>
+                            <constraint firstItem="maD-eW-ad6" firstAttribute="bottom" secondItem="d73-Wp-lKc" secondAttribute="bottom" id="fw2-9R-Z7d"/>
+                            <constraint firstItem="d73-Wp-lKc" firstAttribute="trailing" secondItem="PQo-Re-Zaa" secondAttribute="trailing" constant="20" id="hox-HY-sbQ"/>
+                            <constraint firstItem="d73-Wp-lKc" firstAttribute="trailing" secondItem="maD-eW-ad6" secondAttribute="trailing" constant="20" id="mHl-O5-mqg"/>
+                            <constraint firstItem="maD-eW-ad6" firstAttribute="leading" secondItem="d73-Wp-lKc" secondAttribute="leading" constant="20" id="xxz-nx-Jjs"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Dairy" id="6bg-w9-J5g">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pu3-Cw-433">
@@ -231,7 +247,7 @@
     </scenes>
     <resources>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
