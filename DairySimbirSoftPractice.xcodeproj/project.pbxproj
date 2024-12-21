@@ -253,8 +253,8 @@
 				5575E1D52CFC808400B1D4AF /* Sources */,
 				5575E1D62CFC808400B1D4AF /* Frameworks */,
 				5575E1D72CFC808400B1D4AF /* Resources */,
-				20DF361007F7961578163D5F /* [CP] Embed Pods Frameworks */,
 				049232F62D0E2B6800922315 /* SwiftLint */,
+				4EB3A41356793E726D6FA6DD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -292,7 +292,7 @@
 				5575E1F52CFC808600B1D4AF /* Sources */,
 				5575E1F62CFC808600B1D4AF /* Frameworks */,
 				5575E1F72CFC808600B1D4AF /* Resources */,
-				8A591D5FD8B9D65591408C8D /* [CP] Embed Pods Frameworks */,
+				0649FBAED1B1A45388259846 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -395,21 +395,21 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
-		20DF361007F7961578163D5F /* [CP] Embed Pods Frameworks */ = {
+		0649FBAED1B1A45388259846 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		335289454F20DD69BB7C98D3 /* [CP] Check Pods Manifest.lock */ = {
@@ -434,21 +434,21 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A591D5FD8B9D65591408C8D /* [CP] Embed Pods Frameworks */ = {
+		4EB3A41356793E726D6FA6DD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests/Pods-DairySimbirSoftPractice-DairySimbirSoftPracticeUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DairySimbirSoftPractice/Pods-DairySimbirSoftPractice-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D57E2E2DDD54D78A6D7BF795 /* [CP] Check Pods Manifest.lock */ = {
@@ -761,7 +761,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LHC5MJRH8W;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pseq.com.DairySimbirSoftPracticeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -786,7 +786,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = LHC5MJRH8W;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = pseq.com.DairySimbirSoftPracticeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -6,10 +6,9 @@ target 'DairySimbirSoftPractice' do
   use_frameworks!
 
   # Pods for DairySimbirSoftPractice
-  # pod 'SwiftLint', '0.48.0'
-  # pod 'SwiftLint'
-  pod 'RealmSwift'
-
+#  pod 'RealmSwift'
+  pod 'RealmSwift', '~> 10.46.0'
+  pod 'FSCalendar'
 
   target 'DairySimbirSoftPracticeTests' do
     inherit! :search_paths

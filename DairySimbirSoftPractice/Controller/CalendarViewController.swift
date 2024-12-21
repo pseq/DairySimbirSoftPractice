@@ -4,7 +4,6 @@
 //
 //  Created by pseq on 01.12.2024.
 //
-// new branch v.12.0
 
 import UIKit
 
@@ -14,12 +13,11 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
     var taskToDetails = TaskItem()
     var taskDistributor: TasksDistributionProtocol?
     
-    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var hoursTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
+//        datePicker.addTarget(self, action: #selector(onDateChanged(sender:)), for: .valueChanged)
         hoursTableView.delegate = self
         hoursTableView.dataSource = self
         taskDistributor = TasksDistributor()
@@ -28,13 +26,15 @@ class CalendarViewController: UIViewController, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         // Будем распределять список задач на каждый час суток при каждом появлении
-        tasksByHours =  taskDistributor?.tasksByHoursDistribution(datePicker.date) ?? [:]
+//        tasksByHours =  taskDistributor?.tasksByHoursDistribution(datePicker.date) ?? [:]
+        tasksByHours =  taskDistributor?.tasksByHoursDistribution(Date(timeIntervalSince1970: 1734090496)) ?? [:]
         hoursTableView.reloadData()
     }
     
     @objc func onDateChanged(sender: UIDatePicker) {
         // ...и при изменении даты в календаре
-        tasksByHours =  taskDistributor?.tasksByHoursDistribution(datePicker.date) ?? [:]
+//        tasksByHours =  taskDistributor?.tasksByHoursDistribution(datePicker.date) ?? [:]
+        tasksByHours =  taskDistributor?.tasksByHoursDistribution(Date(timeIntervalSince1970: 1734090496)) ?? [:]
         hoursTableView.reloadData()
     }
 }
@@ -93,7 +93,8 @@ extension CalendarViewController: HourCellDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showAddTaskScene" {
             if let destination = segue.destination as? AddTaskViewController {
-                destination.taskDate = datePicker.date
+//                destination.taskDate = datePicker.date
+                destination.taskDate = Date(timeIntervalSince1970: 1734090496)
             }
         } else if segue.identifier == "showTaskInfoScene" {
             if let destination = segue.destination as? TaskInfoViewController {
