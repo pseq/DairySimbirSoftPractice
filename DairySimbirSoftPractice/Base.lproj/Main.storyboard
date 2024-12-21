@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nR4-Un-IaG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nR4-Un-IaG">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -153,19 +153,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="1o6-Jl-HjP" userLabel="Start Date Picker">
-                                <rect key="frame" x="194" y="157" width="220" height="36"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="1o6-Jl-HjP" userLabel="Start Date Picker">
+                                <rect key="frame" x="20" y="157" width="390" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="DJE-iv-9ob"/>
-                                    <constraint firstAttribute="width" constant="220" id="km0-Gg-8fw"/>
-                                </constraints>
-                                <locale key="locale" localeIdentifier="en_GB"/>
-                            </datePicker>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="VT0-zp-E1c" userLabel="Finish Date Picker">
-                                <rect key="frame" x="194" y="201" width="220" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="Rgd-Pk-eZm"/>
-                                    <constraint firstAttribute="width" constant="220" id="Vqc-ab-ggB"/>
+                                    <constraint firstAttribute="height" constant="50" id="pIs-Ea-gaH"/>
                                 </constraints>
                                 <locale key="locale" localeIdentifier="en_GB"/>
                             </datePicker>
@@ -175,27 +166,36 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="t78-MR-KN7" userLabel="Task Description">
-                                <rect key="frame" x="16" y="245" width="398" height="411"/>
+                                <rect key="frame" x="16" y="273" width="398" height="440"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="VT0-zp-E1c" userLabel="Finish Date Picker">
+                                <rect key="frame" x="16" y="215" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MqU-4e-MVv"/>
+                                </constraints>
+                                <locale key="locale" localeIdentifier="en_GB"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hS0-4A-STK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="VT0-zp-E1c" firstAttribute="top" secondItem="1o6-Jl-HjP" secondAttribute="bottom" constant="8" symbolic="YES" id="74D-ns-9fy"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="1o6-Jl-HjP" secondAttribute="trailing" constant="20" id="7xL-w5-rdL"/>
                             <constraint firstItem="0GK-Gj-0Tx" firstAttribute="leading" secondItem="hS0-4A-STK" secondAttribute="leading" constant="16" id="Bt0-bT-bny"/>
-                            <constraint firstItem="t78-MR-KN7" firstAttribute="leading" secondItem="hS0-4A-STK" secondAttribute="leading" constant="16" id="KCW-CR-WfN"/>
-                            <constraint firstItem="VT0-zp-E1c" firstAttribute="top" secondItem="1o6-Jl-HjP" secondAttribute="bottom" constant="8" symbolic="YES" id="LLQ-Y3-IuA"/>
-                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="1o6-Jl-HjP" secondAttribute="trailing" constant="16" id="LOG-yt-uUn"/>
-                            <constraint firstItem="t78-MR-KN7" firstAttribute="top" secondItem="VT0-zp-E1c" secondAttribute="bottom" constant="8" symbolic="YES" id="OGk-RE-y2o"/>
-                            <constraint firstItem="1o6-Jl-HjP" firstAttribute="top" secondItem="0GK-Gj-0Tx" secondAttribute="bottom" constant="8" symbolic="YES" id="UPM-gD-rAM"/>
+                            <constraint firstItem="t78-MR-KN7" firstAttribute="top" secondItem="VT0-zp-E1c" secondAttribute="bottom" constant="8" symbolic="YES" id="DeJ-6c-3wU"/>
+                            <constraint firstItem="VT0-zp-E1c" firstAttribute="leading" secondItem="hS0-4A-STK" secondAttribute="leading" constant="16" id="MIX-y8-sq3"/>
                             <constraint firstItem="0GK-Gj-0Tx" firstAttribute="top" secondItem="hS0-4A-STK" secondAttribute="top" constant="10" id="UUq-dc-bOh"/>
-                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="VT0-zp-E1c" secondAttribute="trailing" constant="16" id="hG3-ob-cnt"/>
+                            <constraint firstItem="t78-MR-KN7" firstAttribute="leading" secondItem="hS0-4A-STK" secondAttribute="leading" constant="16" id="cO5-z5-LTb"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="VT0-zp-E1c" secondAttribute="trailing" constant="20" id="dQ7-xT-fxB"/>
                             <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="0GK-Gj-0Tx" secondAttribute="trailing" constant="16" id="hfV-Ha-xNL"/>
-                            <constraint firstItem="hS0-4A-STK" firstAttribute="bottom" secondItem="t78-MR-KN7" secondAttribute="bottom" constant="242" id="lig-dy-HzP"/>
-                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="t78-MR-KN7" secondAttribute="trailing" constant="16" id="wJL-Qw-l4t"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="trailing" secondItem="t78-MR-KN7" secondAttribute="trailing" constant="16" id="oJa-Kv-lpn"/>
+                            <constraint firstItem="1o6-Jl-HjP" firstAttribute="top" secondItem="0GK-Gj-0Tx" secondAttribute="bottom" constant="8" symbolic="YES" id="oiI-g2-8M3"/>
+                            <constraint firstItem="hS0-4A-STK" firstAttribute="bottom" secondItem="t78-MR-KN7" secondAttribute="bottom" constant="185" id="qKq-Pp-2CS"/>
+                            <constraint firstItem="1o6-Jl-HjP" firstAttribute="leading" secondItem="hS0-4A-STK" secondAttribute="leading" constant="20" id="uzM-mJ-5Uq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" id="wqW-Eo-HfG" userLabel="Add Task"/>
@@ -208,7 +208,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="clF-7p-015" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4237.5" y="1.056338028169014"/>
+            <point key="canvasLocation" x="4236.2790697674418" y="0.64377682403433478"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="C7e-6O-4OU">
@@ -231,7 +231,7 @@
     </scenes>
     <resources>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
